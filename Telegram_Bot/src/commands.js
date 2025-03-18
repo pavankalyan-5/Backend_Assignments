@@ -62,9 +62,6 @@ export const handleAlgorithmCommand = async (ctx) => {
 
     if (algorithms[algoName]) {
       const escapedCode = escapeMarkdownV2(algorithms[algoName]);
-      const loaderMessage = await ctx.replyWithVideo({ source: "./loader.mp4" });
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      await ctx.telegram.deleteMessage(ctx.chat.id, loaderMessage.message_id);
 
       ctx.replyWithMarkdownV2(
         `*Algorithm:* \`${algoName}\`\n\`\`\`\n${escapedCode}\n\`\`\``,
